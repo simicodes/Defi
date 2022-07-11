@@ -1,19 +1,24 @@
 import About from "./components/About";
 import Developers from "./components/Developers";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Subscribe from "./components/Subscribe";
+import Platform from "./components/Platform";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Developers />
-      <Subscribe />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Platform />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/developers" element={<Developers />} />
+          <Route path="/community" element={<Subscribe />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 }
