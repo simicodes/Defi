@@ -8,6 +8,9 @@ const Navbar = () => {
   const handleToggleMenu = () => {
     setToggleMenu(!toggleMenu);
   };
+
+  const handleClose = () => setToggleMenu(!toggleMenu);
+
   return (
     <div className="w-full h-[90px] cursor-pointer bg-black">
       <div className="max-w-[1240px]  mx-auto px-4 flex justify-between items-center h-full">
@@ -48,10 +51,24 @@ const Navbar = () => {
           }
         >
           <ul>
-            <li className="text-2xl">Platform</li>
-            <li className="text-2xl">Developers</li>
-            <li className="text-2xl">Community</li>
-            <li className="text-2xl">About</li>
+            <Link onClick={handleClose} to="/">
+              <li className="text-2xl">Platform</li>
+            </Link>
+            <Link onClick={handleClose} to="/developers">
+              {" "}
+              <li className="text-2xl">Developers</li>
+            </Link>
+
+            <Link onClick={handleClose} to="/community">
+              {" "}
+              <li className="text-2xl">Community</li>
+            </Link>
+
+            <Link onClick={handleClose} to="/about">
+              {" "}
+              <li className="text-2xl">About</li>
+            </Link>
+
             <button className="m-8">Use Defi</button>
           </ul>
         </div>
